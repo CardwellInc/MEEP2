@@ -39,21 +39,23 @@ let q=Math.round(CxlCost2/x); //number of remaining installments on wellness pla
 let BK = document.getElementById("BK").value;
 
 var today = new Date();{
-var dd = BK;
-var mm = today.getMonth()+2+y; 
+var dd = today.getDate();
 var yyyy = today.getFullYear();
 
-if(dd<10) 
+if(parseInt(BK) > parseInt(dd))
 {
-    dd='0'+dd;
-} 
+    var mm= (y+1);
+} else if(parseInt(BK) < parseInt(dd)){
+
+   var mm = (y+2);
+}
 
 if(mm>12) 
 {
     mm=mm-12;
 } 
 
-today = mm+'/'+dd+'/'+yyyy;
+today = mm+'/'+BK+'/'+yyyy;
 console.log(today);
 console.log(y);
 }
@@ -63,7 +65,7 @@ if (parseInt(ServUsed) < parseInt(WPBAL)) {
            
             ///services used cxl
 
-        var P1 = "Looking at "+PName+"'s plan, as $"+ServUsed+" of services were used and the plan costs $"+WPBAL+", we can close for the lesser of the two amounts being the cost of the services used. We then subtract the $"+InstallPaid+" of installments paid, which leaves the cost to close today of $"+CxlCost+". This can either be paid today or we can let each monthly installment of $"+x+" lower the balance each month over time, I do recommend calling back before the installment on "+today+" to pay the remaining $"+z+". Please keep in mind if you do not reach out the plan will fulfil the year and end automatically on "+EndDate+" and You will also want to avoid using anymore services as closing the plan is based on usage, using more services will adjust the cost to cancel accordingly.";
+        var P1 = "Looking at "+PName+"'s plan, as $"+ServUsed+" of services were used and the plan costs $"+WPBAL+", we can close for the lesser of the two amounts being the cost of the services used. We then subtract the $"+InstallPaid+" of installments paid, which leaves the cost to close today of $"+CxlCost+". This can either be paid today or we can let each monthly installment of $"+x+" lower the balance each month over time, I do recommend calling back before the installment on "+today+" to pay the remaining $"+z+". Please keep in mind if you do not reach out the plan will fulfil the year and end automatically on "+EndDate+" and You will also want to avoid using anymore services as closing the plan is based on usage; using more services will adjust the cost to cancel accordingly.";
 
         var note = "-adv $"+CxlCost+" per Services for "+PName+" adv to cb before " +today+ " to pay the remaining $"+z+" to avoid overpymt ";
 
