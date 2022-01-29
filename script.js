@@ -40,7 +40,7 @@ let BK = document.getElementById("BK").value;
 
 var today = new Date();{
 var dd = BK;
-var mm = today.getMonth()+1+y; 
+var mm = today.getMonth()+2+y; 
 var yyyy = today.getFullYear();
 
 if(dd<10) 

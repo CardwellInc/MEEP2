@@ -168,7 +168,10 @@ select:hover {
     background-color: #66ff0028
 }
 
-
+.MEEP{
+    border: #444444;
+    
+}
 
 #CMWC {
     border: 5px solid rgb(250, 108, 56);
